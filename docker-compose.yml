@@ -1,0 +1,20 @@
+version: "3.8"
+
+# Proyecto Final Capstone - Arquitectura y Sistemas Operativos
+# Consumo y visualización de datos desde una API IoT en contenedor
+# Autores: Luca Farias, Bruno Verna
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: nodered-iot
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    volumes:
+      - node-red-data:/data
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+
+volumes:
+  node-red-data:
